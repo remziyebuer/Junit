@@ -36,7 +36,7 @@ public class C01_Yasinh_Assertion {
     @After
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
-        driver.close();
+        driver.quit();
     }
 
     @Test//title Test  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
