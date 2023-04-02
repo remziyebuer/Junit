@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class C01_AllertsMethods extends TestBase {
-    public static void main(String[] args) {
+
         @Test
         public void acceptAlert() throws InterruptedException {
             // https://testcenter.techproeducation.com/index.php?page=javascript-alerts adresine gidin.
@@ -52,4 +52,4 @@ public class C01_AllertsMethods extends TestBase {
             System.out.println(result.getText());
         }
     }
-}
+
