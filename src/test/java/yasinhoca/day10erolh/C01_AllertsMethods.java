@@ -1,9 +1,9 @@
-package day10;
-import day09.TestBase;
+package yasinhoca.day10erolh;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utilities.TestBase;
 
 public class C01_AllertsMethods extends TestBase {
 

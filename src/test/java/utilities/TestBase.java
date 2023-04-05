@@ -1,4 +1,4 @@
-package day09;
+package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +14,7 @@ public class TestBase {
     //TestBase class'ından Obje oluşturmanın önüne geçilmesi için abstract yapılabilir
     //Orn: TestBase base = new TestBase()
     //Bu class'a extends ettiğimiz test classlarından ulaşabiliriz
-    protected static WebDriver driver;
+    public static WebDriver driver;
     @Before
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
@@ -23,11 +23,11 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-    @After
-    public void tearDown() throws Exception {
-        bekle(3);
-        driver.quit();
-    }
+//    @After
+//    public void tearDown() throws Exception {
+//        bekle(3);
+//        driver.quit();
+//    }
     //HARD WAIT METHOD
     public static void bekle(int saniye){
         try {
