@@ -3,7 +3,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utilities.TestBase;
+import yasinhoca.utilities.TestBase;
 
 public class C01_AllertsMethods extends TestBase {
 

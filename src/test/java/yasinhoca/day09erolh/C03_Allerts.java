@@ -3,7 +3,7 @@ package yasinhoca.day09erolh;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import utilities.TestBase;
+import yasinhoca.utilities.TestBase;
 
 public class C03_Allerts extends TestBase{
      /*

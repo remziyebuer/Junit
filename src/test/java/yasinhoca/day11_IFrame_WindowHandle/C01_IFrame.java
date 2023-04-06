@@ -3,7 +3,7 @@ package yasinhoca.day11_IFrame_WindowHandle;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utilities.TestBase;
+import yasinhoca.utilities.TestBase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

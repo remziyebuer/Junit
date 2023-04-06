@@ -2,7 +2,7 @@ package yasinhoca.day09erolh;
 
 import org.junit.Assert;
 import org.junit.Test;
-import utilities.TestBase;
+import yasinhoca.utilities.TestBase;
 
 public class C02_TestBaseDemo extends TestBase {
     @Test

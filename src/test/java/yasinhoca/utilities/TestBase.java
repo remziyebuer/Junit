@@ -1,4 +1,4 @@
-package utilities;
+package yasinhoca.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -10,11 +10,14 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestBase {
     //TestBase class'ından Obje oluşturmanın önüne geçilmesi için abstract yapılabilir
     //Orn: TestBase base = new TestBase()
     //Bu class'a extends ettiğimiz test classlarından ulaşabiliriz
-    public static WebDriver driver;
+    protected static WebDriver driver;
     @Before
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
@@ -23,11 +26,11 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-//    @After
-//    public void tearDown() throws Exception {
-//        bekle(3);
-//        driver.quit();
-//    }
+    @After
+    public void tearDown() throws Exception {
+        bekle(3);
+        driver.quit();
+    }
     //HARD WAIT METHOD
     public static void bekle(int saniye){
         try {
@@ -73,8 +76,15 @@ public class TestBase {
         Select select = new Select(ddm);
         select.selectByValue(secenek);
     }
-
-
+    //SwitchToWindow
+    public static void switchToWindow(int sayi){
+        List<String> tumWindowHandles = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tumWindowHandles.get(sayi));
+    }
+    //SwitchToWindow2
+    public static void window(int sayi){
+        driver.switchTo().window(driver.getWindowHandles().toArray()[sayi].toString());
+    }
 
 
 
