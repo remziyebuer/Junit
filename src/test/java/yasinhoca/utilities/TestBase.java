@@ -26,11 +26,11 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-    @After
-    public void tearDown() throws Exception {
-        bekle(3);
-        driver.quit();
-    }
+//    @After
+////    public void tearDown() throws Exception {
+////        bekle(3);
+////        driver.quit();
+////    }
     //HARD WAIT METHOD
     public static void bekle(int saniye){
         try {

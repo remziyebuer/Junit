@@ -44,6 +44,7 @@ public class C02_ClassWork {
 
   // arama cubuguna "Nutella" yazıp aratın
         driver.findElement(By.id("L2AGLb")).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//input[@class='gLFyf']")).
                 sendKeys("Nutella" + Keys.ENTER);
 
@@ -72,10 +73,6 @@ public class C02_ClassWork {
         }
         // sayfayı kapatın
         driver.close();
-
-
-
-
 
 
     }

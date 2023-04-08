@@ -3,10 +3,15 @@ package yasinhoca.day07;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Ödev03 {
     /*
@@ -31,11 +36,51 @@ public class Ödev03 {
 
 
     }
+//
+////    @After
+////    public void tearDown() throws Exception {
+////        driver.quit();
+////    }
+//
+//
+    @Test
+    public void test01() throws InterruptedException {
+////
+////
+////        // Web sitesini aç ve ürün sayfasına git
+////        driver.get("http://www.example.com/product");
+////
+////        // Ürünü seç ve sepete ekle
+////        WebElement addToCartButton = driver.findElement(By.cssSelector("button.add-to-cart"));
+////        addToCartButton.click();
+////
+////        // Sepet sayfasına git ve doğru ürünün eklenip eklenmediğini kontrol et
+////        WebElement cartLink = driver.findElement(By.cssSelector("a.cart-link"));
+////        cartLink.click();
+////        WebElement productInCart = driver.findElement(By.xpath("//td[contains(text(),'Product Name')]"));
+////        if (productInCart.isDisplayed()) {
+////            System.out.println("Ürün sepete başarıyla eklenmiştir.");
+////        } else {
+////            System.out.println("Ürün sepete eklenirken bir hata oluştu.");
+////        }
+////        System.out.println("*************************");
+//        // Web sitesini aç ve sepet sayfasına git
+           driver.get("https://www.saucedemo.com");
+//        Thread.sleep(3000);
+//
+//        // Sepetin içindeki tüm ürünleri listele
+//        List<WebElement> productsInCart = driver.findElements(By.cssSelector("tr.product"));
+//
+//        // Ayakkabı var mı diye kontrol et
+//        boolean hasShoes = false;
+//        for (WebElement product : productsInCart) {
+//            WebElement productName = product.findElement(By.cssSelector("td.product-name"));
+//            if (productName.getText().equals("Ayakkabı")) {
+//                hasShoes = true;
+//                break;
+//            }
+//        }
+//
 
-    @After
-    public void tearDown() throws Exception {
-        driver.close();
     }
-
-
 }

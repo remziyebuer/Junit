@@ -42,6 +42,9 @@ public class C04_RadioButton {
 
         // https://demo.guru99.com/test/radio.html adresine gidin
         driver.get("https://demo.guru99.com/test/radio.html");
+        driver.switchTo().frame(3);
+        driver.findElement(By.xpath("//button[@id='save']")).click();
+        driver.switchTo().defaultContent();
 
 
         // radiobutton elementlerini locate edin
