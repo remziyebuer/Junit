@@ -1,23 +1,14 @@
 package yasinhoca.day15erolh;
-
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import yasinhoca.utilities.TestBase;
+import java.time.Duration;
 
-public class C02_ExplicitWait extends TestBase {
-    /*
-    https://the-internet.herokuapp.com/dynamic_loading/1
-    Start buttonuna tıklayın
-    Hello World! Yazının sitede oldugunu test edin
-     */
-
-
+public class C04_ExplicitWait  extends TestBase {
     @Test
     public void explicitWait() {
         //https://the-internet.herokuapp.com/dynamic_loading/1

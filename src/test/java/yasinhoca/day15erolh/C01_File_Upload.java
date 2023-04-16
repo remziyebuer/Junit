@@ -6,10 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import yasinhoca.utilities.TestBase;
 
+import java.awt.*;
+
 public class C01_File_Upload extends TestBase {
 
     @Test
-    public void fileUpload() {
+    public void fileUpload() throws AWTException {
     /*
     https://the-internet.herokuapp.com/upload adresine gidin
     logo.jpeg dosyasını yükleyin(upload)
