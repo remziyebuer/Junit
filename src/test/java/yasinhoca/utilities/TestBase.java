@@ -166,6 +166,28 @@ public abstract class TestBase {
             throw new RuntimeException(e);
         }
     }
+
+    //ExtentReport
+    public void extentReport(){
+        extentReports = new ExtentReports();
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "TestOutput/reports/extentReport_"+tarih+".html";
+        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+        extentReports.attachReporter(extentHtmlReporter);
+
+        //Raporda gözükmesini istediğimiz bilgiler için
+        extentReports.setSystemInfo("Browser","Chrome");
+        extentReports.setSystemInfo("Tester","Erol");
+        extentHtmlReporter.config().setDocumentTitle("Extent Report");
+        extentHtmlReporter.config().setReportName("Smoke Test Raporu");
+    }
+    //WebTable
+    public void printData(int satir, int sutun){
+        WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr["+satir+"]//td["+sutun+"]"));
+        System.out.println(satirSutun.getText());
+    }
+
+
 }
 
 
