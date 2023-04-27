@@ -20,24 +20,38 @@ public class C01_Waits extends TestBase {
     public  void test01(){
         // https://the-internet.herokuapp.com/dynamic_controls adresine gidiniz
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
+
+
         // Textbox'in etkin olmadıgını(enable) test edin
-        WebElement textBox = driver.findElement(By.xpath("//input [@type = 'text']"));
+        WebElement textBox = driver.findElement(By.xpath("//input[@type='text']"));
         Assert.assertFalse(textBox.isEnabled());
 
+
+
+
         // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
-        WebElement enableButonu = driver.findElement(By.xpath("//button[text() = 'Enable']"));
+        WebElement enableButonu = driver.findElement(By.xpath("//button[text()='Enable']"));
         enableButonu.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(textBox));
 
+
+
         // It's enable! mesajının goruntulendigini test edin
-     WebElement itsEnabledYazisi =  driver.findElement(By.xpath("//p[text()=\"It's enabled!\"]"));
-        Assert.assertTrue(itsEnabledYazisi.isDisplayed());
+        WebElement itsEnableYazisi = driver.findElement(By.xpath("//p[text()=\"It's enabled!\"]"));
+        Assert.assertTrue(itsEnableYazisi.isDisplayed());
+
 
 
         // Textbox'in etkin oldugunu(enable) test edin
         Assert.assertTrue(textBox.isEnabled());
+
+        Assert.assertTrue(textBox.isEnabled());
+
+         /*
+        daha fazla bekleme suresi gerektiren belirli webelementler icin wait kullanılır
+         */
 
     }
 }

@@ -51,12 +51,12 @@ public abstract class TestBase {
 
     }
 
-    @After
-    public void tearDown() throws Exception {
-        bekle(3);
-        extentReports.flush();
-        driver.quit();
-    }
+//    @After
+//    public void tearDown() throws Exception {
+//        bekle(3);
+//        extentReports.flush();
+//        driver.quit();
+//    }
 
     //HARD WAIT METHOD
     public static void bekle(int saniye) {
