@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import yasinhoca.utilities.TestBase;
+import JunitUnterrichten.utilities.TestBase;
 
 public class C02_ScreenShot extends TestBase {
     // https://www.teknosa.com/ adresine gidin

@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import yasinhoca.utilities.TestBase;
+import JunitUnterrichten.utilities.TestBase;
 
 
 import java.util.Set;

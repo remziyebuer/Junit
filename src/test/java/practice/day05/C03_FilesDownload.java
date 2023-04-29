@@ -3,7 +3,7 @@ package practice.day05;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import yasinhoca.utilities.TestBase;
+import JunitUnterrichten.utilities.TestBase;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
