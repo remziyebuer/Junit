@@ -22,5 +22,7 @@ public class C01_NoSuchElement extends TestBase{
         // Webelementin locatini değiştirdiğimiz için 21. satırda
         //NoSuchElementException hatası aldık
         //SearchBox'ın locatini yeniden almamız gerekir
+        //burda imp. wait kullandigimiz icin bu ex.  verdi eger özel bir durum olsa ve explicit. wait kullansaydik
+        //no suchh degil time out ex. alirdik ikinci class ta bunu görecegiz.
     }
 }
