@@ -121,7 +121,7 @@ public abstract class TestBase {
     //Tüm Sayfa ScreenShot
     public static void tumSayfaResmi(){
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/screenshot/screenshot"+tarih+".png";
+        String dosyaYolu = "TestOutput/ScreenShot/TümEkranResmi"+tarih+".png";
         TakesScreenshot ts = (TakesScreenshot) driver;
         try {
             FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
@@ -133,7 +133,7 @@ public abstract class TestBase {
     //WebElement ScreenShot
     public static void webElementResmi(WebElement element){
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/screenshot/webElementScreenshot"+tarih+".png";
+        String dosyaYolu = "TestOutput/screenshot/WebElementScreenshot"+tarih+".png";
 
         try {
             FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
