@@ -1,73 +1,52 @@
 package JunitUnterrichten.day20_ExcelRead_WriteExcel;
-
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
 public class C02_ExcelWrite {
-    //burda Selenium a ihtiyacimiz yok o yüzden TestBase kullanmiyorum
-/*
-    Capitals.xlsx dosyasından 1. satır 2. sütundaki hücreyi yazdırın
-    3. Satır 1. sütun değerini yazdırın ve "France" olduğunu test edin
-    Kullanılan satır sayısın bulun
-    Ülke-Başkent şeklinde verileri yazdırın
+     /*
+    Bir "NÜFUS" sütunu oluşturup başkent nüfuslarını excel doyasına yazınız:
+    (D.C: 712816, Paris: 2161000, London: 8982000, Ankara: 5663000 ...)
      */
 
     @Test
-    public void readExcelTest() throws IOException {
-
-        //Dosyayı al:
+    public void excelWriteTest() throws IOException {
+        //WorkBook ==> Sheet ==> Row ==> Cell ==> Yaz ==> Kaydet
         FileInputStream fileInputStream = new FileInputStream("src/test/java/resources/Capitals.xlsx");
 
-        //FileInputStream objesini WorkBook(Excel) dosyası olarak aç:
         Workbook workbook = WorkbookFactory.create(fileInputStream);
 
-        //Sayfayı(Sheet) aç:
+        //1. Satır 3. sütuna yeni hücre oluştur:
+        //basta Cell yeniHucreNufus = Workbook.getSheet("Sheet1").getRow(0).createCell(2);
+        //iken hocaniz tekrardan kacinmak icin bunu row a kadar olan kismini sheet1 olarak bir
+        // container a koydu.
         Sheet sheet1 = workbook.getSheet("Sheet1");
+        Cell yeniHucreNufus = sheet1.getRow(0).createCell(2);
 
-        //Satıra(Row) git:
-        Row row = sheet1.getRow(0);//1. satır: indeks 0
+        yeniHucreNufus.setCellValue("NÜFUS");
 
-        //Birinci hücreyi(Cell) al:
-        Cell cell = row.getCell(0);//1. hücre: indeks 0
+        System.out.println("yeniHucreNufus = " + yeniHucreNufus);//Excelde göremeyiz daha memoryde.
+        // Henüz excel dosyasına yazdırılmadığı için dosyamızda görünmeyecektir.Diger alttaki 4 cellide dolduralim
+        // sonra yazdiralim.
 
-        System.out.println("cell = " + cell);
+        sheet1.getRow(1).createCell(2).setCellValue(712816);//Hücreye integer değeri atadık
+        sheet1.getRow(2).createCell(2).setCellValue("2161000");//Hücreye String değer atadık
+        sheet1.getRow(3).createCell(2).setCellValue(8982000);//numara olara yani int daha mmantikli
+        sheet1.getRow(4).createCell(2).setCellValue(5663000);
+        sheet1.getRow(5).createCell(2).setBlank();//Hücreye boş değer atar öceden atadigi degeri
+        // silmede kullandi Yasin hoca delete aradi bulamadi arastir var mi baska yolu
 
-//        Capitals.xlsx dosyasından 1. satır 2. sütundaki hücreyi yazdırın
-        Cell cell12 = sheet1.getRow(0).getCell(1);
-        System.out.println("cell1 = " + cell12);
+        FileOutputStream fileOutputStream = new FileOutputStream("src/test/java/resources/Capitals.xlsx");
 
-//        3. Satır 1. sütun değerini yazdırın ve "France" olduğunu test edin
-        Cell cell31 = sheet1.getRow(2).getCell(0);
-        System.out.println("cell31 = " + cell31);
-        assertEquals("France", cell31.toString());
-
-//        Kullanılan satır sayısın bulun
-        int sonKullanilanSatirIndeksi = sheet1.getLastRowNum();//Son kullanılan satırın indeksini verir
-        System.out.println("sonKullanilanSatirIndeksi = " + sonKullanilanSatirIndeksi);
-
-        int kullanilanToplamSatirSayisi = sheet1.getPhysicalNumberOfRows();//Kullanılan toplam satır sayısını verir
-        System.out.println("kullanilanToplamSatirSayisi = " + kullanilanToplamSatirSayisi);
-
-//        Ülke-Başkent şeklinde verileri yazdırın
-        Map<String, String> ulkelerVeBaskentleri = new HashMap<>();
-
-        for (int satirIndeks = 1; satirIndeks < kullanilanToplamSatirSayisi; satirIndeks++) {
-
-            String ulkeAdi = sheet1.getRow(satirIndeks).getCell(0).toString();
-            String baskentAdi = sheet1.getRow(satirIndeks).getCell(1).toString();
-
-            ulkelerVeBaskentleri.put(ulkeAdi, baskentAdi);
-
-        }
-
-        System.out.println("ulkelerVeBaskentleri = " + ulkelerVeBaskentleri);
+        workbook.write(fileOutputStream);//WorkBook hafızasına alınan veriyi "src/test/java/resources/Capitals.xlsx"
+        // adresindeki dosyaya write() metodu ile kaydettik.Kaydetme sirasinda excel acik ise baska dosya bir
+        // islemde kullaniliyor diye hata verecek(FileNotFoundException)
 
     }
-
 }
