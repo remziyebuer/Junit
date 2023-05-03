@@ -171,20 +171,20 @@ public abstract class TestBase {
         }
     }
 
-    //JS Scroll
+    //JS Scroll; bu method ile sayfayi elementi görebilecek sekilde  kaydirir.
     public void scroll(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",element);
     }
 
-    //JS Sayfa Sonu Scroll
+    //JS Sayfa Sonu Scroll; bu method ile sayfayi en alta kaydirir.
     public void scrollEnd(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
-    //JS Sayfa Başı Scroll
-    public void scrollHome(){
+    //JS Sayfa Başı Scroll; bu method ile sayfayi en basa kaydirir.
+    public void scrollTopJS(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
@@ -200,11 +200,13 @@ public abstract class TestBase {
         js.executeScript("arguments[0].setAttribute('value','"+text+"')",element);
     }
 
-    //JS GetAttributeValue
+    //JS GetAttributeValue; id si varsa tabii
     public void getValueByJS(String id, String attributeName) {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
+        String attribute_Value =js.
+                          executeScript("return document.getElementById('" + id + "')."
+                          + attributeName).toString();
         System.out.println("Attribute Value: = " + attribute_Value);
 
 
